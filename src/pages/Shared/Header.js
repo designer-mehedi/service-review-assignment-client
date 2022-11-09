@@ -5,6 +5,7 @@ const Header = () => {
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/services'>Services</Link></li>
     </>
 
     return (
@@ -38,7 +39,7 @@ const Header = () => {
 					<Link className="normal-case text-xl">Review</Link>
 				</div>
 				<div className="navbar-center hidden lg:flex">
-					<ul className="menu menu-horizontal hover:text-white p-0">
+					<ul className="menu-horizontal p-0 gap-5">
 						{menuItems}
 					</ul>
 				</div>
