@@ -9,17 +9,17 @@ const ServiceDetails = () => {
 	const handleReview = e => {
 		e.preventDefault(); 
 		const form = e.target;
-		const name = `${form.firstName.value} ${form.lastName.value}`;
+		const userName = `${form.firstName.value} ${form.lastName.value}`;
 		const email = user?.email || 'unregistered';
 		const phone = form.phone.value;
 		const comment = form.comment.value; 
-		console.log(name, email, phone, comment); 
+		console.log(userName, email, phone, comment); 
 
 		const review = {
 			service: _id,
 			serviceName: name,
 			price,
-			customer: name,
+			customer: userName,
 			email,
 			phone,
 			comment 
