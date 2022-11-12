@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
-	const {_id, name, price} = useLoaderData();
+	const {_id, name, price, img} = useLoaderData();
 	const  {user} = useContext(AuthContext); 
 	const handleReview = e => {
 		e.preventDefault(); 
@@ -22,7 +22,8 @@ const ServiceDetails = () => {
 			customer: userName,
 			email,
 			phone,
-			comment 
+			comment,
+			img
 		}
 
 		fetch(
