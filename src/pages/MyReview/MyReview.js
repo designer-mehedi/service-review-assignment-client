@@ -13,35 +13,55 @@ const MyReview = () => {
         .catch(err => console.error(err));
     }, [user?.email])
 
+    const handleDelete = (id) => {
+		const proceed = window.confirm("Are you want to delete this review");
+		if (proceed) {
+			fetch(
+				`https://service-review-assignment-server.vercel.app/reviews/${id}`,
+				{
+					method: "DELETE",
+				}
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					console.log(data);
+                    if(data.deletedCount > 0) {
+                        alert('Review deleted successfully'); 
+                        const remaining = reviews.filter(ord => ord._id !== id);
+                        setReviews(remaining);
+                    }
+				});
+		}
+	};
+
     return (
-        <div>
-           <div className="overflow-x-auto w-full max-w-screen-xl mx-auto">
-            <h2>You have {reviews.length} orders</h2>
-            <table className="table w-full">
-            <thead>
-                <tr>
-                <th>
-                    
-                </th>
-                <th>Name</th>
-                <th>Service Name</th>
-                <th>Price</th>
-                <th>Reviews</th>
-                <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    reviews.map(review => <ReviewRow
-                    key={review._id}
-                    review={review}
-                    ></ReviewRow>)
-                }
-            </tbody>
-            </table>
-            </div> 
-        </div>
-    );
+		<div>
+			<div className="overflow-x-auto w-full max-w-screen-xl mx-auto">
+				<h2>You have {reviews.length} orders</h2>
+				<table className="table w-full">
+					<thead>
+						<tr>
+							<th></th>
+							<th>Name</th>
+							<th>Service Name</th>
+							<th>Price</th>
+							<th>Reviews</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tbody>
+						{reviews.map((review) => (
+							<ReviewRow
+								key={review._id}
+								review={review}
+								handleDelete={handleDelete}
+							></ReviewRow>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	);
 };
 
 export default MyReview;

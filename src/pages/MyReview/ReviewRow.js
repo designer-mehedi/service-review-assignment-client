@@ -1,13 +1,17 @@
-import React from 'react';
+const ReviewRow = ({ review, handleDelete }) => {
+	const { _id, customer, email, serviceName, price, img, comment } = review;
 
-const ReviewRow = ({review}) => {
-    const { customer, email, serviceName, price, img, comment } = review;
-    return (
+	return (
 		<>
 			<tr>
 				<th>
 					<label>
-						<button>X</button>
+						<button
+							onClick={() => handleDelete(_id)}
+							className="hover:bg-red-500 hover:px-3 hover:py-2 py-2 px-3 hover:text-white hover:rounded-md"
+						>
+							X
+						</button>
 					</label>
 				</th>
 				<td>
@@ -34,9 +38,7 @@ const ReviewRow = ({review}) => {
 					</span>
 				</td>
 				<td>{price}</td>
-				<td>
-					{comment}
-				</td>
+				<td>{comment}</td>
 				<th>
 					<button className="btn btn-ghost btn-xs">Status</button>
 				</th>

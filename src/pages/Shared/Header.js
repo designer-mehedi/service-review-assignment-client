@@ -4,13 +4,22 @@ import logo from "../../assets/0e48e863afa406aa0bda03c5278e8e2e.png"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
-	const {user} = useContext(AuthContext); 
+	const {user, logOut} = useContext(AuthContext); 
     const menuItems = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/services'>Services</Link></li>
-		<li><Link to='/reviews'>My Review</Link></li>
-		<li><Link to='/login'>Login</Link></li>
-		<li><Link to='/signup'>Sign Up</Link></li>
+		{/* <li><Link to='/reviews'>My Review</Link></li> */}
+		{ user?.email ?
+			<>
+			<li><Link to='/reviews'>My Review</Link></li>
+			<button onClick={logOut} className="bg-red-300 px-2 py-1 text-black">Log Out</button>
+			</>
+			: 
+			<div className="flex gap-5">
+				<li><Link to='/login'>Login</Link></li>
+				<li><Link to='/signup'>Sign Up</Link></li>
+			</div>
+		}
 		<span>{user?.email}</span>
     </>
 
