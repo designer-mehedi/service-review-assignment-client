@@ -24,6 +24,18 @@ const ServiceDetails = () => {
 			phone,
 			comment 
 		}
+
+		fetch(
+			"https://service-review-assignment-server.vercel.app/reviews", {
+				method: "POST",
+				headers: {
+					"content-type" : "application/json"
+				},
+				body: JSON.stringify(review)
+			})
+			.then(res => res.json())
+			.then(data => console.log(data))
+			.catch(err => console.log(err));
 	}
     return (
 		<div>
@@ -41,11 +53,11 @@ const ServiceDetails = () => {
 							<div className="grid grid-cols-2 gap-5 mb-5">
 							<input className="px-2 py-3 outline-none" name="firstName" type="text" placeholder="First Name" />
 							<input className="px-2 py-3 outline-none" name="lastName" type="text" placeholder="Last Name" />
-							<input className="px-2 py-3 outline-none" name="email" defaultValue={user?.email} type="email" placeholder="Your Email" readOnly/>
-							<input className="px-2 py-3 outline-none" name="phone" type="text" placeholder="Your Phone" />
+							<input className="px-2 py-3 outline-none" name="email" defaultValue={user?.email} type="email" placeholder="Your Email" readOnly required/>
+							<input className="px-2 py-3 outline-none" name="phone" type="text" placeholder="Your Phone" required/>
 							</div>
 							<div className="w-full">
-								<textarea name="comment" cols="30" rows="10" className="w-full block"></textarea>
+								<textarea name="comment" cols="30" rows="10" className="w-full block" required></textarea>
 							</div>
 							<button className="text-center mx-auto w-full bg-blue-900 text-white py-2 mt-5">Add Review</button>
 						</form>
