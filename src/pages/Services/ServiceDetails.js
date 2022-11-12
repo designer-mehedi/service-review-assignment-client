@@ -34,9 +34,16 @@ const ServiceDetails = () => {
 				body: JSON.stringify(review)
 			})
 			.then(res => res.json())
-			.then(data => console.log(data))
+			.then(data => {
+				console.log(data)
+				if(data.acknowledged) {
+					alert('User Review Added')
+				}
+			})
 			.catch(err => console.log(err));
+			form.reset(); 
 	}
+
     return (
 		<div>
 			<div className="max-w-screen-xl mx-auto">
