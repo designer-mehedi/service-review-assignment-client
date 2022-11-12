@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import logo from "../../assets/0e48e863afa406aa0bda03c5278e8e2e.png"
 
 const Header = () => {
 
@@ -11,8 +12,8 @@ const Header = () => {
     </>
 
     return (
-		<div>
-			<div className="navbar bg-base-100 max-w-screen-xl mx-auto">
+		<div className="bg-slate-800">
+			<div className="navbar  max-w-screen-xl mx-auto text-white">
 				<div className="navbar-start">
 					<div className="dropdown">
 						<label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -38,15 +39,15 @@ const Header = () => {
 							{menuItems}
 						</ul>
 					</div>
-					<Link className="normal-case text-xl">Review</Link>
+					<Link className="normal-case text-xl"><img className="w-20" src={logo} alt="" /></Link>
 				</div>
 				<div className="navbar-center hidden lg:flex">
-					<ul className="menu-horizontal p-0 gap-5">
-						{menuItems}
-					</ul>
+					<ul className="menu-horizontal p-0 gap-5">{menuItems}</ul>
 				</div>
 				<div className="navbar-end">
-					<button className="bg-blue-600 px-5 py-3 text-white rounded-md">Contact Us</button>
+					<button className="bg-blue-600 px-5 py-3 text-white rounded-md">
+						Contact Us
+					</button>
 				</div>
 			</div>
 		</div>
