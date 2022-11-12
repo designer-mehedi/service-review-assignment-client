@@ -14,7 +14,7 @@ const ServiceCards = ({service}) => {
 					<h4>{price}</h4>
 					<p>{description}</p>
 					<div className="card-actions">
-						<Link to={`/service/${_id}`}>
+						<Link to={`/services/${_id}`}>
 							<button className="btn btn-primary">Details</button>
 						</Link>
 					</div>

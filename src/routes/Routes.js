@@ -1,9 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home/Home/Home";
+import Login from "../pages/Login/Login";
 import ServiceDetails from "../pages/Services/ServiceDetails";
 
 import Services from "../pages/Services/Services";
+import SignUp from "../pages/SignUp/SignUp";
 
 export const router = createBrowserRouter([
 	{
@@ -15,18 +17,33 @@ export const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: "/services",
-				element: <Services />,
-				loader: () => fetch("http://localhost:5000/service-page"),
+				path: "/home",
+				element: <Home/>
 			},
 			{
-				path: "/service/:id",
+				path: "/services",
+				element: <Services />,
+				loader: () =>
+					fetch(
+						"https://service-review-assignment-server.vercel.app/service-page"
+					),
+			},
+			{
+				path: "/services/:id",
 				element: <ServiceDetails />,
 				loader: ({ params }) =>
 					fetch(
-						`http://localhost:5000/service-page/${params.id}`
+						`https://service-review-assignment-server.vercel.app/service-page/${params.id}`
 					),
 			},
+			{
+				path: "/login",
+				element: <Login/>
+			},
+			{
+				path: "/signup",
+				element: <SignUp/>
+			}
 		],
 	},
 ]);

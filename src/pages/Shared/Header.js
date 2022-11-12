@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     const menuItems = <>
-        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/home'>Home</Link></li>
         <li><Link to='/services'>Services</Link></li>
+		<li><Link to='/login'>Login</Link></li>
+		<li><Link to='/signup'>Sign Up</Link></li>
     </>
 
     return (
@@ -44,7 +46,7 @@ const Header = () => {
 					</ul>
 				</div>
 				<div className="navbar-end">
-					<Link className="btn">Get started</Link>
+					<button className="bg-blue-600 px-5 py-3 text-white rounded-md">Contact Us</button>
 				</div>
 			</div>
 		</div>
