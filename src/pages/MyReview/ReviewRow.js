@@ -1,12 +1,13 @@
 import React from 'react';
 
-const ReviewRow = () => {
+const ReviewRow = ({review}) => {
+    const { customer, email, serviceName, price, img, comment } = review;
     return (
 		<>
 			<tr>
 				<th>
 					<label>
-						<input type="checkbox" className="checkbox" />
+						<button>X</button>
 					</label>
 				</th>
 				<td>
@@ -14,29 +15,30 @@ const ReviewRow = () => {
 						<div className="avatar">
 							<div className="mask mask-squircle w-12 h-12">
 								<img
-									src="/tailwind-css-component-profile-2@56w.png"
+									src={img}
 									alt="Avatar Tailwind CSS Component"
 								/>
 							</div>
 						</div>
 						<div>
-							<div className="font-bold">Hart Hagerty</div>
-							<div className="text-sm opacity-50">
-								United States
-							</div>
+							<div className="font-bold">{customer}</div>
+							<div className="text-sm opacity-50">{email}</div>
 						</div>
 					</div>
 				</td>
 				<td>
-					Zemlak, Daniel and Leannon
+					{serviceName}
 					<br />
 					<span className="badge badge-ghost badge-sm">
 						Desktop Support Technician
 					</span>
 				</td>
-				<td>Purple</td>
+				<td>{price}</td>
+				<td>
+					{comment}
+				</td>
 				<th>
-					<button className="btn btn-ghost btn-xs">details</button>
+					<button className="btn btn-ghost btn-xs">Status</button>
 				</th>
 			</tr>
 		</>
