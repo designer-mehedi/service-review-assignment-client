@@ -31,6 +31,9 @@ const Header = () => {
 					<li>
 						<Link to="/add-service">Add Service</Link>
 					</li>
+					<li>
+						<Link to="/blog">Blog</Link>
+					</li>
 					<button
 						onClick={handleLogOut}
 						className="bg-blue-600 block w-20 h-8 text-white rounded-full text-sm font-bold"

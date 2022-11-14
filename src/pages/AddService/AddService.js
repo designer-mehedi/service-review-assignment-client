@@ -1,5 +1,6 @@
 import React from 'react';
 // import { AuthContext } from "../../AuthProvider/AuthProvider";
+import FileBase64 from "react-file-base64";
 
 const AddService = () => {
     // const {} = useContext(AuthContext); 
@@ -58,16 +59,18 @@ const AddService = () => {
 								placeholder="Service Price"
 							/>
 						</div>
-						<div className="mt-5">
+						<div className="mt-5 flex flex-col">
+							<label htmlFor="">Image</label>
 							<input
 								type="text"
 								className="px-2 py-3 w-full rounded"
 								name="img"
+								placeholder="Enter Image url"
 							/>
 						</div>
 					</div>
 					<div>
-						<label htmlFor="">Service Details</label>
+						<label htmlFor="">Details</label>
 						<div className="w-full">
 							<textarea
 								name="description"
