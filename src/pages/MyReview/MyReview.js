@@ -7,10 +7,12 @@ const MyReview = () => {
     const [reviews, setReviews] = useState([]); 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-        .then(res => res.json())
-        .then(data => setReviews(data))
-        .catch(err => console.error(err));
+        fetch(
+			`https://service-review-assignment-server.vercel.app/reviews?email=${user?.email}`
+		)
+			.then((res) => res.json())
+			.then((data) => setReviews(data))
+			.catch((err) => console.error(err));
     }, [user?.email])
 
     const handleDelete = (id) => {
@@ -37,7 +39,6 @@ const MyReview = () => {
     return (
 		<div>
 			<div className="overflow-x-auto w-full max-w-screen-xl mx-auto">
-				<h2>You have {reviews.length} orders</h2>
 				<table className="table w-full">
 					<thead>
 						<tr>

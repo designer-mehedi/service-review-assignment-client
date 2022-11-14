@@ -1,27 +1,69 @@
 import React, { useContext } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/0e48e863afa406aa0bda03c5278e8e2e.png"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
 	const {user, logOut} = useContext(AuthContext); 
-    const menuItems = <>
-        <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/services'>Services</Link></li>
-		{/* <li><Link to='/reviews'>My Review</Link></li> */}
-		{ user?.email ?
-			<>
-			<li><Link to='/reviews'>My Review</Link></li>
-			<button onClick={logOut} className="bg-red-300 px-2 py-1 text-black">Log Out</button>
-			</>
-			: 
-			<div className="flex gap-5">
-				<li><Link to='/login'>Login</Link></li>
-				<li><Link to='/signup'>Sign Up</Link></li>
-			</div>
-		}
-		<span>{user?.email}</span>
-    </>
+	const navigate = useNavigate();
+
+	const handleLogOut = () => {
+		logOut(); 
+		navigate("/"); 
+		// if(user !== user.email) {
+		// 	navigate('/'); 
+		// }
+	}
+    const menuItems = (
+		<>
+			<li>
+				<Link to="/home">Home</Link>
+			</li>
+			<li>
+				<Link to="/services">Services</Link>
+			</li>
+			{/* <li><Link to='/reviews'>My Review</Link></li> */}
+			{user?.email ? (
+				<>
+					<li>
+						<Link to="/reviews">My Review</Link>
+					</li>
+					<li>
+						<Link to="/add-service">Add Service</Link>
+					</li>
+					<button
+						onClick={handleLogOut}
+						className="bg-blue-600 block w-20 h-8 text-white rounded-full text-sm font-bold"
+					>
+						Log Out
+					</button>
+					<span className="">
+						<div
+							className="tooltip tooltip-right tooltip-info"
+							data-tip={user?.email}
+						>
+							<button className="">
+								<img
+									className="w-7 h-7"
+									src="https://abbeynord.com/profile_placeholder.png"
+									alt=""
+								/>
+							</button>
+						</div>
+					</span>
+				</>
+			) : (
+				<div className="flex gap-5">
+					<li>
+						<Link to="/login">Login</Link>
+					</li>
+					<li>
+						<Link to="/signup">Sign Up</Link>
+					</li>
+				</div>
+			)}
+		</>
+	);
 
     return (
 		<div className="bg-blue-900">

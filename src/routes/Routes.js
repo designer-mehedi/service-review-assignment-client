@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
+import AddService from "../pages/AddService/AddService";
 import Home from "../pages/Home/Home/Home";
 import Login from "../pages/Login/Login";
 import MyReview from "../pages/MyReview/MyReview";
@@ -7,6 +8,7 @@ import ServiceDetails from "../pages/Services/ServiceDetails";
 
 import Services from "../pages/Services/Services";
 import SignUp from "../pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
 	{
@@ -19,7 +21,7 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/home",
-				element: <Home/>
+				element: <Home />,
 			},
 			{
 				path: "/services",
@@ -31,7 +33,11 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/services/:id",
-				element: <ServiceDetails />,
+				element: (
+					<PrivateRoute>
+						<ServiceDetails />
+					</PrivateRoute>
+				),
 				loader: ({ params }) =>
 					fetch(
 						`https://service-review-assignment-server.vercel.app/service-page/${params.id}`
@@ -39,16 +45,24 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: "/reviews",
-				element: <MyReview/>
+				element: (
+					<PrivateRoute>
+						<MyReview />
+					</PrivateRoute>
+				),
+			},
+			{
+				path: "/add-service",
+				element: <AddService />,
 			},
 			{
 				path: "/login",
-				element: <Login/>
+				element: <Login />,
 			},
 			{
 				path: "/signup",
-				element: <SignUp/>
-			}
+				element: <SignUp />,
+			},
 		],
 	},
 ]);
