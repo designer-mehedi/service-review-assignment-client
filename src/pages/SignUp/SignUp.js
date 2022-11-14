@@ -25,7 +25,7 @@ const SignUp = () => {
 	};
 
     return (
-        <div className="max-w-screen-xl mx-auto h-screen flex items-center">
+        <div className="max-w-screen-xl mx-auto h-1/2 my-20 flex items-center">
             <form onSubmit={handleSignup} className="shadow-md mx-auto py-10 px-10 w-[400px] md:border rounded-lg">
                 <h2 className="text-center mb-5 text-2xl font-bold">Sign Up</h2>
                 <div className="flex flex-col mb-4">

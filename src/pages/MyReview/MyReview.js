@@ -38,7 +38,7 @@ const MyReview = () => {
 
     return (
 		<div>
-			<div className="overflow-x-auto w-full max-w-screen-xl mx-auto">
+			<div className="overflow-x-auto w-full max-w-screen-xl mx-auto h-screen">
 				<table className="table w-full">
 					<thead>
 						<tr>
@@ -47,7 +47,7 @@ const MyReview = () => {
 							<th>Service Name</th>
 							<th>Price</th>
 							<th>Reviews</th>
-							<th>Status</th>
+							<th>Published</th>
 						</tr>
 					</thead>
 					<tbody>

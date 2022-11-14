@@ -4,7 +4,7 @@ import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
-	const {_id, name, price, img} = useLoaderData(); 
+	const {_id, name, price, img, description} = useLoaderData(); 
 	const { user } = useContext(AuthContext);
 	const handleReview = (e) => {
 		e.preventDefault();
@@ -24,7 +24,7 @@ const ServiceDetails = () => {
 			phone,
 			comment,
 			img,
-			// date: new Date().toLocaleString()
+			date: new Date().toLocaleString()
 		};
 
 		fetch("https://service-review-assignment-server.vercel.app/reviews", {
@@ -48,16 +48,27 @@ const ServiceDetails = () => {
 
     return (
 		<div>
-			<div className="max-w-screen-xl mx-auto">
-				<div>
-					<h2>Service details</h2>
-					<h3>{name}</h3>
-				</div>
-				<div>
-					<div>
-						<h2>Other Reviews</h2>
+			<div className="">
+				<div className="max-w-screen-xl mx-auto">
+					<h2 className="text-3xl text-center my-10">
+						Service details
+					</h2>
+					<div className="grid md:grid-cols-2 md:gap-x-10">
+						<div>
+							<img src={img} alt="" />
+						</div>
+						<div className="flex items-start flex-col justify-center">
+							<h2>Service Name: {name}</h2>
+							<p>Price: {price}</p>
+							<p>{description}</p>
+						</div>
 					</div>
-					<div className="w-[80%] mx-auto bg-indigo-100 p-10 my-10">
+				</div>
+				<div className="">
+					<div className=" mx-auto bg-indigo-100 p-10 mt-10 w-full px-32">
+						<div>
+							<h2>Other Reviews</h2>
+						</div>
 						<form onSubmit={handleReview}>
 							<div className="grid grid-cols-2 gap-5 mb-5">
 								<input

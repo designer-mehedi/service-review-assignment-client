@@ -1,5 +1,5 @@
 const ReviewRow = ({ review, handleDelete }) => {
-	const { _id, customer, email, serviceName, price, img, comment } = review;
+	const { _id, customer, email, serviceName, price, img, comment, date } = review;
 
 	return (
 		<>
@@ -40,7 +40,7 @@ const ReviewRow = ({ review, handleDelete }) => {
 				<td>{price}</td>
 				<td>{comment}</td>
 				<th>
-					<button className="btn btn-ghost btn-xs">Status</button>
+					<button className="btn btn-ghost btn-xs">{date}</button>
 				</th>
 			</tr>
 		</>

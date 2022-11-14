@@ -1,10 +1,12 @@
 import React from 'react';
+import "react-photo-view/dist/react-photo-view.css";
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from "./AuthProvider/AuthProvider";
 <script src="../path/to/flowbite/dist/flowbite.js"></script>;
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
