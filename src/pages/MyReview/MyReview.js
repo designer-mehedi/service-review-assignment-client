@@ -3,19 +3,21 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import ReviewRow from "./ReviewRow";
 
 const MyReview = () => {
-    const {user} = useContext(AuthContext); 
-    const [reviews, setReviews] = useState([]); 
+	const { user } = useContext(AuthContext);
+	const [reviews, setReviews] = useState([]);
 
-    useEffect(() => {
-        fetch(
+	// https://service-review-assignment-server.vercel.app/reviews?email=${user?.email}
+
+	useEffect(() => {
+		fetch(
 			`https://service-review-assignment-server.vercel.app/reviews?email=${user?.email}`
 		)
 			.then((res) => res.json())
 			.then((data) => setReviews(data))
 			.catch((err) => console.error(err));
-    }, [user?.email])
+	}, [user?.email]);
 
-    const handleDelete = (id) => {
+	const handleDelete = (id) => {
 		const proceed = window.confirm("Are you want to delete this review");
 		if (proceed) {
 			fetch(
@@ -27,16 +29,18 @@ const MyReview = () => {
 				.then((res) => res.json())
 				.then((data) => {
 					console.log(data);
-                    if(data.deletedCount > 0) {
-                        alert('Review deleted successfully'); 
-                        const remaining = reviews.filter(ord => ord._id !== id);
-                        setReviews(remaining);
-                    }
+					if (data.deletedCount > 0) {
+						alert("Review deleted successfully");
+						const remaining = reviews.filter(
+							(ord) => ord._id !== id
+						);
+						setReviews(remaining);
+					}
 				});
 		}
 	};
 
-    return (
+	return (
 		<div>
 			<div className="overflow-x-auto w-full max-w-screen-xl mx-auto h-screen">
 				<table className="table w-full">

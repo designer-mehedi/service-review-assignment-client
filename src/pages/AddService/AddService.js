@@ -1,6 +1,5 @@
 import React from 'react';
 // import { AuthContext } from "../../AuthProvider/AuthProvider";
-import FileBase64 from "react-file-base64";
 
 const AddService = () => {
     // const {} = useContext(AuthContext); 
