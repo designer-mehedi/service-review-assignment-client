@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/0e48e863afa406aa0bda03c5278e8e2e.png"
+import logo from "../../assets/logo.png"
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Header = () => {
@@ -10,9 +10,6 @@ const Header = () => {
 	const handleLogOut = () => {
 		logOut(); 
 		navigate("/"); 
-		// if(user !== user.email) {
-		// 	navigate('/'); 
-		// }
 	}
     const menuItems = (
 		<>
@@ -47,7 +44,7 @@ const Header = () => {
 						>
 							<button className="">
 								<img
-									className="w-7 h-7"
+									className="w-7 h-7 mt-4 md:mt-0"
 									src="https://abbeynord.com/profile_placeholder.png"
 									alt=""
 								/>
@@ -56,7 +53,7 @@ const Header = () => {
 					</span>
 				</>
 			) : (
-				<div className="flex gap-5">
+				<div className="flex md:gap-5 flex-col md:flex-row">
 					<li>
 						<Link to="/login">Login</Link>
 					</li>
@@ -91,12 +88,12 @@ const Header = () => {
 						</label>
 						<ul
 							tabIndex={0}
-							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+							className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-blue-900 rounded-box w-52"
 						>
 							{menuItems}
 						</ul>
 					</div>
-					<Link className="normal-case text-xl"><img className="w-20" src={logo} alt="" /></Link>
+					<Link to="/" className="normal-case text-xl"><img className="w-20" src={logo} alt="" /></Link>
 				</div>
 				<div className="navbar-center hidden lg:flex">
 					<ul className="menu-horizontal p-0 gap-5">{menuItems}</ul>

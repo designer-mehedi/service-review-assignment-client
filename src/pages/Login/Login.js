@@ -3,10 +3,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const Login = () => {
-    const {loginUser} = useContext(AuthContext);
+    const { loginUser, googleSignIn } = useContext(AuthContext);
 	const navigate = useNavigate(); 
 	const location = useLocation(); 
-
 	const from = location.state?.from?.pathname || "/"; 
 
     const handleLogin = (e) => {
@@ -14,7 +13,7 @@ const Login = () => {
 		const form = e.target;
 		const email = form.email.value;
 		const password = form.password.value;
-		console.log(email, password);
+		// console.log(email, password);
 
         loginUser(email, password)
         .then(result => {
@@ -25,6 +24,19 @@ const Login = () => {
         })
         .catch(err => console.log(err))
 	};
+
+	const handleGoogleSignIn = () => {
+		googleSignIn()
+			.then((result) => {
+				const user = result.user;
+				// console.log(user);
+				if (user) {
+					alert("Sign in successful with google");
+					navigate(from, { replace: true });
+				}
+			})
+			.catch((err) => console.log(err)); 
+	}
 
     return (
 		<div className="max-w-screen-xl mx-auto flex items-center h-1/2 my-20">
@@ -40,6 +52,9 @@ const Login = () => {
 				</div>
                 <div>
                     <button type="submit" className="bg-blue-600 px-5 py-2 w-full text-white rounded-md mb-2">Login</button>
+					<button onClick={handleGoogleSignIn} className="border-blue-600 border-2 px-5 py-2 w-full rounded-md mt-2">
+						Google Sign In
+					</button>
                     <span>Want to create an account? <Link to='/signup'>Sign Up</Link></span>
                 </div>
 			</form>

@@ -33,9 +33,6 @@ const ReviewRow = ({ review, handleDelete }) => {
 				<td>
 					{serviceName}
 					<br />
-					<span className="badge badge-ghost badge-sm">
-						Desktop Support Technician
-					</span>
 				</td>
 				<td>{price}</td>
 				<td>{comment}</td>

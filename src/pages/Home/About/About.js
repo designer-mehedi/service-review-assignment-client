@@ -1,26 +1,29 @@
 import React from 'react';
-import about from "../../../assets/nG7XH3x4tddAF3y3mQt5pm.jpg"
 
 const About = () => {
     return (
 		<div>
 			<div className="hero min-h-screen bg-base-200">
 				<div className="hero-content flex-col lg:flex-row">
-					<div className="w-1/2 border">
+					<div className="md:w-1/2 border">
 						<img
-							src={about}
-							className="rounded-lg shadow-2xl w-full h-[400px]"
+							src="https://expertphotography.b-cdn.net/wp-content/uploads/2019/03/camera-lens-camera-and-lens.jpg"
+							className="rounded-lg shadow-2xl w-full h-[300px] md:h-1/2"
 							alt=""
 						/>
 					</div>
-					<div className="w-1/2">
-						<h1 className="text-5xl font-bold">Box Office News!</h1>
+					<div className="md:w-1/2 text-center">
+						<h1 className="text-5xl font-bold">About Us</h1>
 						<p className="py-6">
-							Provident cupiditate voluptatem et in. Quaerat
-							fugiat ut assumenda excepturi exercitationem quasi.
-							In deleniti eaque aut repudiandae et a id nisi.
+							We would like to give you a unique photography and
+							video experience, built to serve you best and
+							capture your special moments for you and your
+							families creatively and beautifully. We are Always
+							Ready for a Challenge.
 						</p>
-						<button className="btn btn-primary">Get Started</button>
+						<button className="btn bg-blue-600 px-5 py-3 rounded border-none text-white">
+							Learn More
+						</button>
 					</div>
 				</div>
 			</div>

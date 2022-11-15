@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 const Footer = () => {
     return (
 		<div className="">
-			<footer className="footer p-10 bg-black text-white px-32">
-				<div>
+			<footer className="md:footer p-10 bg-black text-white md:px-32 px-5 mx-auto text-center">
+				<div className="grid grid-cols-1 mb-7">
 					<span className="footer-title">Services</span>
 					<Link className="link link-hover">Branding</Link>
 					<Link className="link link-hover">Design</Link>
 					<Link className="link link-hover">Marketing</Link>
 					<Link className="link link-hover">Advertisement</Link>
 				</div>
-				<div>
+				<div className="grid grid-cols-1 mb-7">
 					<span className="footer-title">Company</span>
 					<Link className="link link-hover">About us</Link>
 					<Link className="link link-hover">Contact</Link>
 					<Link className="link link-hover">Jobs</Link>
 					<Link className="link link-hover">Press kit</Link>
 				</div>
-				<div>
+				<div className="">
 					<span className="footer-title">Social</span>
-					<div className="grid grid-flow-col gap-4">
-						<Link>
+					<div className="grid md:grid-flow-col grid-cols-3 md:gap-4 w-32 mx-auto gap-10 mt-5">
+						<Link className="">
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
