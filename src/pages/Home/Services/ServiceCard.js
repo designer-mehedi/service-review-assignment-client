@@ -3,7 +3,6 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 
 
 const ServiceCard = ({service}) => {
-    console.log(service); 
     const {img, name, description, price} = service;
     return (
 		<div>
